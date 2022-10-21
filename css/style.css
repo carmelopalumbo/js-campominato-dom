@@ -20,11 +20,13 @@ header{
 header h1{
     font-size: 40px;
     color: rgb(59, 59, 209);
+    -webkit-text-stroke: 1px black;
 }
 
 #gioca,
 #reset,
 #difficult{
+    margin-top: 10px;
     padding: 2px 10px;
     border: 1px solid rgb(59, 59, 209);
     border-radius: 10px;

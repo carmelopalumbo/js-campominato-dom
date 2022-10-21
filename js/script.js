@@ -48,8 +48,8 @@ resetBtn.addEventListener('click', function(){
 
 
 
-// funzioni
 
+// funzioni
 
 //gestione del gioco
 function play(){
@@ -126,19 +126,19 @@ function getRandomNumber(min, max){
 
 //restituisce risultato finale
 function endGame(winCondition){
-    
+
+    //vittoria
     if(winCondition){
         document.getElementById('final_result').classList.add('win');
         document.getElementById('final_result').innerHTML = 'COMPLIMENTI, HAI VINTO, SEI UN MITO!';
         addFinalLayer();
     }else{
+        //sconfitta
         showAllBombs();
         document.getElementById('final_result').classList.add('lose');
         document.getElementById('final_result').innerHTML = `BOOM! HAI TOTALIZZATO UN PUNTEGGIO DI ${count} SU ${numCaselle.value - numBombs}. PUOI FARCELA, RIPROVA!`;
         addFinalLayer();
     }
-
-
 }
 
 //mostra tutte le bombe nascoste
