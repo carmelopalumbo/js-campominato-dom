@@ -33,7 +33,8 @@ const container = document.querySelector('.container');
 const numCaselle = document.getElementById('difficult');
 const inputBtn = document.getElementById('gioca');
 const resetBtn = document.getElementById('reset');
-
+const numBombs = 16;
+let gameBombs = [];
 
 //inizia il gioco
 inputBtn.addEventListener('click', play);
@@ -56,6 +57,8 @@ function play(){
     for(let i = 0; i < numCaselle.value; i++){
         squareGenerator(i);
     }
+
+    bombsGenerator();
 }
 
 //crea quadrati
@@ -67,7 +70,16 @@ function squareGenerator(indexSquare){
     square.sqId = indexSquare + 1;
     square.innerHTML = square.sqId;
     container.append(square);
-    console.log(square);
+}
+
+//genera le bombe
+function bombsGenerator(){
+    let bombs = [];
+    while(bombs.length < numBombs){
+        const bomb = getRandomNumber(1, numCaselle.value);
+        if(!bombs.includes(bomb)) bombs.push(bomb);
+    }
+    //console.log(bombs);
 }
 
 //imposta dimemensioni in base alla quantita
@@ -85,4 +97,9 @@ function reset(){
     numCaselle.value = '';
     container.innerHTML = '';
     document.getElementById('final_result').innerHTML = '';
+}
+
+//restituisce un numero casuale tra max e min
+function getRandomNumber(min, max){
+    return Math.floor(Math.random() * (max - min) ) + min;
 }
