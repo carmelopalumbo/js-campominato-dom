@@ -110,7 +110,7 @@ function clickSquare(){
     }
 
     count++;
-    console.log(count);
+    //console.log(count);
 }
 
 //resetto tutti i campi
