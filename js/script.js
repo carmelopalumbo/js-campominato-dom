@@ -35,23 +35,28 @@ const inputBtn = document.getElementById('gioca');
 const resetBtn = document.getElementById('reset');
 
 
-inputBtn.addEventListener('click', function(){
-    //ciclo for per generare i quadratini
-    container.innerHTML = '';
-    for(let i = 0; i < numCaselle.value; i++){
-        squareGenerator(i);
-    }
-})
+//inizia il gioco
+inputBtn.addEventListener('click', play);
 
 resetBtn.addEventListener('click', function(){
     //cancella tutta la griglia
-    numCaselle.value = '';
-    container.innerHTML = '';
+    reset();
 })
 
 
 
 // funzioni
+
+
+//gestione del gioco
+function play(){
+    container.innerHTML = '';
+
+    //ciclo per generare i quadrati
+    for(let i = 0; i < numCaselle.value; i++){
+        squareGenerator(i);
+    }
+}
 
 //crea quadrati
 function squareGenerator(indexSquare){
@@ -72,4 +77,11 @@ function genCssClass(){
 //cambia colore del quadrato al click
 function clickSquare(){
     this.classList.add('square_click');
+}
+
+//resetto tutti i campi
+function reset(){
+    numCaselle.value = '';
+    container.innerHTML = '';
+    document.getElementById('final_result').innerHTML = '';
 }
