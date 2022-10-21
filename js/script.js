@@ -146,7 +146,8 @@ function showAllBombs(){
     const square = document.getElementsByClassName('square');
     for(let i = 0; i < square.length; i++){
         const checkBomb = square[i];
-        if(gameBombs.includes(checkBomb)){
+        console.log(checkBomb);
+        if(gameBombs.includes(parseInt(checkBomb.innerText))){
             square[i].classList.add('bomb_click');
         }
     }
