@@ -41,10 +41,8 @@ let count = 0;
 //inizia il gioco
 inputBtn.addEventListener('click', play);
 
-resetBtn.addEventListener('click', function(){
-    //cancella tutta la griglia
-    reset();
-})
+//cancella tutta la griglia
+resetBtn.addEventListener('click', reset)
 
 
 
