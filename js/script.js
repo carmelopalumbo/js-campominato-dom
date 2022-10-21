@@ -77,7 +77,7 @@ function squareGenerator(indexSquare){
     container.append(square);
     
     //verifico il ckick
-    square.addEventListener('click', clickSquare);
+    square.addEventListener('click', clickSquare, {once: true});
 }
 
 //genera le bombe
@@ -87,7 +87,8 @@ function bombsGenerator(){
         const bomb = getRandomNumber(1, numCaselle.value);
         if(!bombs.includes(bomb)) bombs.push(bomb);
     }
-    console.log(bombs);
+    //decommenta per visualizzare le bombe
+    //console.log(bombs);
     return bombs;
 }
 
@@ -107,7 +108,9 @@ function clickSquare(){
         this.classList.add('bomb_click');
         endGame(false);
     }
+
     count++;
+    console.log(count);
 }
 
 //resetto tutti i campi
