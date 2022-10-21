@@ -35,6 +35,8 @@ const inputBtn = document.getElementById('gioca');
 const resetBtn = document.getElementById('reset');
 const numBombs = 16;
 let gameBombs = [];
+let count = 0;
+
 
 //inizia il gioco
 inputBtn.addEventListener('click', play);
@@ -51,14 +53,18 @@ resetBtn.addEventListener('click', function(){
 
 //gestione del gioco
 function play(){
+
+    count = 0;
     container.innerHTML = '';
+    
+    gameBombs = bombsGenerator();
 
     //ciclo per generare i quadrati
     for(let i = 0; i < numCaselle.value; i++){
         squareGenerator(i);
     }
+    console.log(gameBombs);
 
-    bombsGenerator();
 }
 
 //crea quadrati
@@ -70,6 +76,9 @@ function squareGenerator(indexSquare){
     square.sqId = indexSquare + 1;
     square.innerHTML = square.sqId;
     container.append(square);
+    
+    //verifico il ckick
+    square.addEventListener('click', clickSquare);
 }
 
 //genera le bombe
@@ -80,6 +89,7 @@ function bombsGenerator(){
         if(!bombs.includes(bomb)) bombs.push(bomb);
     }
     //console.log(bombs);
+    return bombs;
 }
 
 //imposta dimemensioni in base alla quantita
@@ -87,14 +97,23 @@ function genCssClass(){
     return `calc(100% / ${Math.sqrt(numCaselle.value)})`;
 }
 
-//cambia colore del quadrato al click
+//verifico se ho cliccato una bomba o una casella ok
 function clickSquare(){
-    this.classList.add('square_click');
+    if(!gameBombs.includes(this.sqId)){
+        this.classList.add('square_click');
+        count++;
+        if(count === numCaselle.value - numBombs){
+            endGame(true);
+        }
+    }else{
+        this.classList.add('bomb_click');
+        //endGame(false);
+    }
 }
 
 //resetto tutti i campi
 function reset(){
-    numCaselle.value = '';
+    count = 0;
     container.innerHTML = '';
     document.getElementById('final_result').innerHTML = '';
 }
@@ -102,4 +121,9 @@ function reset(){
 //restituisce un numero casuale tra max e min
 function getRandomNumber(min, max){
     return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+//restituisce risultato finale
+function endGame(){
+    console.log('HAI VINTO');
 }

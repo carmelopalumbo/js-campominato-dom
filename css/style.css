@@ -72,6 +72,12 @@ main h2{
     transition: all .5s;
 }
 
+.bomb_click{
+    background-color: rgb(167, 22, 22);
+    color: white;
+    transition: all .5s;
+}
+
 footer p{
     height: 20px;
     margin-left: 10px;
