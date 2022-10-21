@@ -52,6 +52,7 @@ main h2{
     margin: 0 auto;
     width: 600px;
     height: 600px;
+    position: relative;
 }
 
 .square{
@@ -86,6 +87,15 @@ main h2{
     background-color: rgb(167, 22, 22);
     color: white;
     transition: all .5s;
+}
+
+.final_layer{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 footer p{

@@ -55,6 +55,7 @@ resetBtn.addEventListener('click', function(){
 function play(){
 
     count = 0;
+    document.getElementById('final_result').innerHTML = '';
     container.innerHTML = '';
     
     gameBombs = bombsGenerator();
@@ -129,17 +130,19 @@ function endGame(winCondition){
     if(winCondition){
         document.getElementById('final_result').classList.add('win');
         document.getElementById('final_result').innerHTML = 'COMPLIMENTI, HAI VINTO, SEI UN MITO!';
+        addFinalLayer();
     }else{
         showAllBombs();
         document.getElementById('final_result').classList.add('lose');
         document.getElementById('final_result').innerHTML = `BOOM! HAI TOTALIZZATO UN PUNTEGGIO DI ${count} SU ${numCaselle.value - numBombs}. PUOI FARCELA, RIPROVA!`;
-
+        addFinalLayer();
     }
+
+
 }
 
-//mostra tutte le bome nascoste
+//mostra tutte le bombe nascoste
 function showAllBombs(){
-    console.log(gameBombs);
     const square = document.getElementsByClassName('square');
     for(let i = 0; i < square.length; i++){
         const checkBomb = square[i];
@@ -147,4 +150,12 @@ function showAllBombs(){
             square[i].classList.add('bomb_click');
         }
     }
+}
+
+
+//aggiunge un layer impedendo di continuare il gioco quando finisce
+function addFinalLayer(){
+    const layer = document.createElement('div');
+    layer.classList.add('final_layer');
+    container.append(layer);
 }
