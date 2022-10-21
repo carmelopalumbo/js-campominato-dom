@@ -136,7 +136,7 @@ function endGame(winCondition){
         showAllBombs();
         document.getElementById('final_result').classList.remove('win');
         document.getElementById('final_result').classList.add('lose');
-        document.getElementById('final_result').innerHTML = `BOOM! HAI TOTALIZZATO UN PUNTEGGIO DI ${count} SU ${numCaselle.value - numBombs}. PUOI FARCELA, RIPROVA!`;
+        document.getElementById('final_result').innerHTML = `BOOM! HAI TOTALIZZATO UN PUNTEGGIO DI ${count} SU ${numCaselle.value - numBombs}. <br> PUOI FARCELA, RIPROVA!`;
         addFinalLayer();
     }
 }
