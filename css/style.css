@@ -1,0 +1,74 @@
+/* css */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    margin: 20px;
+}
+
+header h1{
+    font-size: 40px;
+    color: rgb(59, 59, 209);
+}
+
+#gioca,
+#reset,
+#difficult{
+    padding: 2px 10px;
+    border: 1px solid rgb(59, 59, 209);
+    border-radius: 10px;
+    color: rgb(59, 59, 209);
+}
+
+main{
+   background-image: linear-gradient(to right top, #052837, #035869, #0f8d96, #3fc5ba, #7fffd4);
+    height: calc(90vh - 20px);
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
+}
+
+.square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.square_click{
+    background-color: rgb(59, 59, 209);
+    color: white;
+    transition: all .5s;
+}
+
+footer p{
+    height: 20px;
+    margin-left: 10px;
+    color: rgb(59, 59, 209);
+    font-style: italic;
+}
