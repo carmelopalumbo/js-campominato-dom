@@ -33,7 +33,7 @@ const container = document.querySelector('.container');
 const numCaselle = document.getElementById('difficult');
 const inputBtn = document.getElementById('gioca');
 const resetBtn = document.getElementById('reset');
-const numBombs = 16;
+const numBombs = 2;
 let gameBombs = [];
 let count = 0;
 
@@ -64,8 +64,6 @@ function play(){
     for(let i = 0; i < numCaselle.value; i++){
         squareGenerator(i);
     }
-    console.log(gameBombs);
-
 }
 
 //crea quadrati
@@ -89,7 +87,7 @@ function bombsGenerator(){
         const bomb = getRandomNumber(1, numCaselle.value);
         if(!bombs.includes(bomb)) bombs.push(bomb);
     }
-    //console.log(bombs);
+    console.log(bombs);
     return bombs;
 }
 
@@ -102,7 +100,6 @@ function genCssClass(){
 function clickSquare(){
     if(!gameBombs.includes(this.sqId)){
         this.classList.add('square_click');
-        count++;
         if(count === numCaselle.value - numBombs){
             endGame(true);
         }
@@ -110,6 +107,7 @@ function clickSquare(){
         this.classList.add('bomb_click');
         endGame(false);
     }
+    count++;
 }
 
 //resetto tutti i campi
@@ -129,12 +127,14 @@ function endGame(winCondition){
 
     //vittoria
     if(winCondition){
+        document.getElementById('final_result').classList.remove('lose');
         document.getElementById('final_result').classList.add('win');
         document.getElementById('final_result').innerHTML = 'COMPLIMENTI, HAI VINTO, SEI UN MITO!';
         addFinalLayer();
     }else{
         //sconfitta
         showAllBombs();
+        document.getElementById('final_result').classList.remove('win');
         document.getElementById('final_result').classList.add('lose');
         document.getElementById('final_result').innerHTML = `BOOM! HAI TOTALIZZATO UN PUNTEGGIO DI ${count} SU ${numCaselle.value - numBombs}. PUOI FARCELA, RIPROVA!`;
         addFinalLayer();
@@ -146,7 +146,6 @@ function showAllBombs(){
     const square = document.getElementsByClassName('square');
     for(let i = 0; i < square.length; i++){
         const checkBomb = square[i];
-        console.log(checkBomb);
         if(gameBombs.includes(parseInt(checkBomb.innerText))){
             square[i].classList.add('bomb_click');
         }
