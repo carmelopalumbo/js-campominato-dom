@@ -33,7 +33,7 @@ const container = document.querySelector('.container');
 const numCaselle = document.getElementById('difficult');
 const inputBtn = document.getElementById('gioca');
 const resetBtn = document.getElementById('reset');
-const numBombs = 2;
+const numBombs = 16;
 let gameBombs = [];
 let count = 0;
 
