@@ -66,6 +66,16 @@ main h2{
     cursor: pointer;
 }
 
+.win{
+    color:  rgb(59, 59, 209);
+    -webkit-text-stroke: 2px black;
+}
+
+.lose{
+    color: rgb(167, 22, 22);
+    -webkit-text-stroke: 2px black;
+} 
+
 .square_click{
     background-color: rgb(59, 59, 209);
     color: white;

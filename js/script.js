@@ -107,7 +107,7 @@ function clickSquare(){
         }
     }else{
         this.classList.add('bomb_click');
-        //endGame(false);
+        endGame(false);
     }
 }
 
@@ -124,6 +124,27 @@ function getRandomNumber(min, max){
 }
 
 //restituisce risultato finale
-function endGame(){
-    console.log('HAI VINTO');
+function endGame(winCondition){
+    
+    if(winCondition){
+        document.getElementById('final_result').classList.add('win');
+        document.getElementById('final_result').innerHTML = 'COMPLIMENTI, HAI VINTO, SEI UN MITO!';
+    }else{
+        showAllBombs();
+        document.getElementById('final_result').classList.add('lose');
+        document.getElementById('final_result').innerHTML = `BOOM! HAI TOTALIZZATO UN PUNTEGGIO DI ${count} SU ${numCaselle.value - numBombs}. PUOI FARCELA, RIPROVA!`;
+
+    }
+}
+
+//mostra tutte le bome nascoste
+function showAllBombs(){
+    console.log(gameBombs);
+    const square = document.getElementsByClassName('square');
+    for(let i = 0; i < square.length; i++){
+        const checkBomb = square[i];
+        if(gameBombs.includes(checkBomb)){
+            square[i].classList.add('bomb_click');
+        }
+    }
 }
