@@ -62,11 +62,12 @@ function play(){
 function squareGenerator(indexSquare){
     const square = document.createElement('div');
     square.classList.add('square');
-    container.append(square);
     square.style.width = genCssClass();
     square.style.height = genCssClass();
-    square.innerHTML = indexSquare + 1;
-    square.addEventListener('click', clickSquare);
+    square.sqId = indexSquare + 1;
+    square.innerHTML = square.sqId;
+    container.append(square);
+    console.log(square);
 }
 
 //imposta dimemensioni in base alla quantita
