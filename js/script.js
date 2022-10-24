@@ -42,7 +42,7 @@ let count = 0;
 inputBtn.addEventListener('click', play);
 
 //cancella tutta la griglia
-resetBtn.addEventListener('click', reset)
+resetBtn.addEventListener('click', reset);
 
 
 
